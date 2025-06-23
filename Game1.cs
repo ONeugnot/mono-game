@@ -57,6 +57,22 @@ public class Game1 : Game
 
     protected override void Update(GameTime gameTime)
     {
+        int screenWidth = _graphics.PreferredBackBufferWidth;
+        int screenHeight = _graphics.PreferredBackBufferHeight;
+
+        float spriteWidth = _playerSprite.Width * 2;
+        float spriteHeight = _playerSprite.Height * 2;
+
+        _playerPosition.X = MathHelper.Clamp(
+            _playerPosition.X,
+            spriteWidth / 2,
+            screenWidth - spriteWidth / 2
+        );
+        _playerPosition.Y = MathHelper.Clamp(
+            _playerPosition.Y,
+            spriteHeight / 2,
+            screenHeight - spriteHeight / 2
+        );
         if (
             GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed
             || Keyboard.GetState().IsKeyDown(Keys.Escape)

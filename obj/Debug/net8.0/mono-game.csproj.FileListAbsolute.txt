@@ -34,3 +34,4 @@ C:\Users\oneugnot\Documents\codelab\mono-game\bin\Debug\net8.0\Content\sprite-le
 C:\Users\oneugnot\Documents\codelab\mono-game\bin\Debug\net8.0\Content\sprite-right-profil.xnb
 C:\Users\oneugnot\Documents\codelab\mono-game\bin\Debug\net8.0\Content\sprite-back.xnb
 C:\Users\oneugnot\Documents\codelab\mono-game\bin\Debug\net8.0\Content\sprite-trees.xnb
+C:\Users\oneugnot\Documents\codelab\mono-game\obj\Debug\net8.0\mono-game.sourcelink.json
