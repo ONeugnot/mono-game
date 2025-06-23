@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\oneugnot\\Documents\\codelab\\mono-game\\mono-game.csproj": {}
+    "C:\\Users\\Jérôme\\Documents\\GitHub\\mono-game\\mono-game.csproj": {}
   },
   "projects": {
-    "C:\\Users\\oneugnot\\Documents\\codelab\\mono-game\\mono-game.csproj": {
+    "C:\\Users\\Jérôme\\Documents\\GitHub\\mono-game\\mono-game.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\oneugnot\\Documents\\codelab\\mono-game\\mono-game.csproj",
+        "projectUniqueName": "C:\\Users\\Jérôme\\Documents\\GitHub\\mono-game\\mono-game.csproj",
         "projectName": "mono-game",
-        "projectPath": "C:\\Users\\oneugnot\\Documents\\codelab\\mono-game\\mono-game.csproj",
-        "packagesPath": "C:\\Users\\oneugnot\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\oneugnot\\Documents\\codelab\\mono-game\\obj\\",
+        "projectPath": "C:\\Users\\Jérôme\\Documents\\GitHub\\mono-game\\mono-game.csproj",
+        "packagesPath": "C:\\Users\\Jérôme\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Jérôme\\Documents\\GitHub\\mono-game\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\oneugnot\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\Jérôme\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0"

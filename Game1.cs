@@ -57,6 +57,36 @@ public class Game1 : Game
 
     protected override void Update(GameTime gameTime)
     {
+        KeyboardState keyboardState = Keyboard.GetState();
+
+        float speed = 5f;
+
+        if (keyboardState.IsKeyDown(Keys.LeftShift))
+        {
+            speed = 7f;
+        }
+
+        if (keyboardState.IsKeyDown(Keys.Z) || keyboardState.IsKeyDown(Keys.Up))
+        {
+            _playerPosition.Y -= speed;
+            _playerSprite = _playSpriteBack;
+        }
+        else if (keyboardState.IsKeyDown(Keys.S) || keyboardState.IsKeyDown(Keys.Down))
+        {
+            _playerPosition.Y += speed;
+            _playerSprite = _playSpriteFront;
+        }
+
+        if (keyboardState.IsKeyDown(Keys.D) || keyboardState.IsKeyDown(Keys.Right))
+        {
+            _playerPosition.X += speed;
+            _playerSprite = _playSpriteRight;
+        }
+        else if (keyboardState.IsKeyDown(Keys.Q) || keyboardState.IsKeyDown(Keys.Left))
+        {
+            _playerPosition.X -= speed;
+            _playerSprite = _playSpriteLeft;
+        }
         int screenWidth = _graphics.PreferredBackBufferWidth;
         int screenHeight = _graphics.PreferredBackBufferHeight;
 
@@ -73,70 +103,7 @@ public class Game1 : Game
             spriteHeight / 2,
             screenHeight - spriteHeight / 2
         );
-        if (
-            GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed
-            || Keyboard.GetState().IsKeyDown(Keys.Escape)
-        )
-            Exit();
 
-        if (Keyboard.GetState().IsKeyDown(Keys.Z) || Keyboard.GetState().IsKeyDown(Keys.Up))
-        {
-            _playerPosition.Y -= 5;
-            _playerSprite = _playSpriteBack;
-        }
-        else if (Keyboard.GetState().IsKeyDown(Keys.S) || Keyboard.GetState().IsKeyDown(Keys.Down))
-        {
-            _playerPosition.Y += 5;
-            _playerSprite = _playSpriteFront;
-        }
-
-        if (Keyboard.GetState().IsKeyDown(Keys.D) || Keyboard.GetState().IsKeyDown(Keys.Right))
-        {
-            _playerPosition.X += 5;
-            _playerSprite = _playSpriteRight;
-        }
-        else if (Keyboard.GetState().IsKeyDown(Keys.Q) || Keyboard.GetState().IsKeyDown(Keys.Left))
-        {
-            _playerPosition.X -= 5;
-            _playerSprite = _playSpriteLeft;
-        }
-
-        if (
-            Keyboard.GetState().IsKeyDown(Keys.Z) && Keyboard.GetState().IsKeyDown(Keys.LeftShift)
-            || Keyboard.GetState().IsKeyDown(Keys.Up)
-                && Keyboard.GetState().IsKeyDown(Keys.LeftShift)
-        )
-        {
-            _playerPosition.Y -= 8;
-        }
-        else if (
-            Keyboard.GetState().IsKeyDown(Keys.S) && Keyboard.GetState().IsKeyDown(Keys.LeftShift)
-            || Keyboard.GetState().IsKeyDown(Keys.Down)
-                && Keyboard.GetState().IsKeyDown(Keys.LeftShift)
-        )
-        {
-            _playerPosition.Y += 8;
-        }
-        if (
-            Keyboard.GetState().IsKeyDown(Keys.D) && Keyboard.GetState().IsKeyDown(Keys.LeftShift)
-            || Keyboard.GetState().IsKeyDown(Keys.Right)
-                && Keyboard.GetState().IsKeyDown(Keys.LeftShift)
-        )
-        {
-            _playerPosition.X += 8;
-        }
-        else if (
-            Keyboard.GetState().IsKeyDown(Keys.Q) && Keyboard.GetState().IsKeyDown(Keys.LeftShift)
-            || Keyboard.GetState().IsKeyDown(Keys.Left)
-                && Keyboard.GetState().IsKeyDown(Keys.LeftShift)
-        )
-        {
-            _playerPosition.X -= 8;
-        }
-
-        _oldGameTime = gameTime;
-
-        System.Diagnostics.Debug.WriteLine(gameTime.ElapsedGameTime);
         base.Update(gameTime);
     }
 

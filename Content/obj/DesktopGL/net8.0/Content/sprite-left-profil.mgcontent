@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <SourceFile>C:/Users/oneugnot/Documents/codelab/mono-game/Content/sprite-left-profil.png</SourceFile>
-  <SourceTime>2025-06-23T11:33:00.3090691+02:00</SourceTime>
-  <DestFile>C:/Users/oneugnot/Documents/codelab/mono-game/Content/bin/DesktopGL/Content/sprite-left-profil.xnb</DestFile>
-  <DestTime>2025-06-23T12:01:49.3487504+02:00</DestTime>
+  <SourceFile>C:/Users/Jérôme/Documents/GitHub/mono-game/Content/../assets/sprite-left-profil.png</SourceFile>
+  <SourceTime>2025-06-23T19:00:12.5772606+02:00</SourceTime>
+  <DestFile>C:/Users/Jérôme/Documents/GitHub/mono-game/Content/bin/DesktopGL/Content/sprite-left-profil.xnb</DestFile>
+  <DestTime>2025-06-23T19:05:30.6172649+02:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2025-06-02T12:31:02+02:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

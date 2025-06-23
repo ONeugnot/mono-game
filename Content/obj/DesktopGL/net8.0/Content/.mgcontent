@@ -4,17 +4,17 @@
   <Platform>DesktopGL</Platform>
   <Config />
   <SourceFiles>
-    <File>C:/Users/oneugnot/Documents/codelab/mono-game/Content/sprite-back.png</File>
-    <File>C:/Users/oneugnot/Documents/codelab/mono-game/Content/sprite-face.png</File>
-    <File>C:/Users/oneugnot/Documents/codelab/mono-game/Content/sprite-left-profil.png</File>
-    <File>C:/Users/oneugnot/Documents/codelab/mono-game/Content/sprite-right-profil.png</File>
-    <File>C:/Users/oneugnot/Documents/codelab/mono-game/Content/sprite-trees.png</File>
+    <File>C:/Users/Jérôme/Documents/GitHub/mono-game/Content/../assets/sprite-back.png</File>
+    <File>C:/Users/Jérôme/Documents/GitHub/mono-game/Content/../assets/sprite-face.png</File>
+    <File>C:/Users/Jérôme/Documents/GitHub/mono-game/Content/../assets/sprite-left-profil.png</File>
+    <File>C:/Users/Jérôme/Documents/GitHub/mono-game/Content/../assets/sprite-right-profil.png</File>
+    <File>C:/Users/Jérôme/Documents/GitHub/mono-game/Content/../assets/sprite-trees.png</File>
   </SourceFiles>
   <DestFiles>
-    <File xsi:nil="true" />
-    <File xsi:nil="true" />
-    <File xsi:nil="true" />
-    <File xsi:nil="true" />
-    <File xsi:nil="true" />
+    <File>sprite-back.png</File>
+    <File>sprite-face.png</File>
+    <File>sprite-left-profil.png</File>
+    <File>sprite-right-profil.png</File>
+    <File>sprite-trees.png</File>
   </DestFiles>
 </SourceFileCollection>
