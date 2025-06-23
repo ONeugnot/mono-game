@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<SourceFileCollection xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Profile>Reach</Profile>
+  <Platform>DesktopGL</Platform>
+  <Config />
+  <SourceFiles>
+    <File>C:/Users/oneugnot/Documents/codelab/mono-game/Content/sprite-back.png</File>
+    <File>C:/Users/oneugnot/Documents/codelab/mono-game/Content/sprite-face.png</File>
+    <File>C:/Users/oneugnot/Documents/codelab/mono-game/Content/sprite-left-profil.png</File>
+    <File>C:/Users/oneugnot/Documents/codelab/mono-game/Content/sprite-right-profil.png</File>
+    <File>C:/Users/oneugnot/Documents/codelab/mono-game/Content/sprite-trees.png</File>
+  </SourceFiles>
+  <DestFiles>
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+  </DestFiles>
+</SourceFileCollection>
