@@ -14,9 +14,14 @@ public class Game1 : Game
     private Texture2D _playSpriteRight;
     private Texture2D _playSpriteTree;
     private Texture2D _playerSprite;
+    private Texture2D _spritePelouse;
     private Vector2 _playerPosition;
     private Vector2 _treePosition;
-    private GameTime _oldGameTime;
+    private uint[,] _tableau =
+    {
+        { 0, 1, 0, 0, 1 },
+        { 1, 1, 0, 0, 1 },
+    };
 
     public Game1()
     {
@@ -51,6 +56,7 @@ public class Game1 : Game
         _playSpriteLeft = Content.Load<Texture2D>("sprite-left-profil");
         _playSpriteRight = Content.Load<Texture2D>("sprite-right-profil");
         _playSpriteTree = Content.Load<Texture2D>("sprite-trees");
+        _spritePelouse = Content.Load<Texture2D>("sprite-pelouse");
         _playerSprite = _playSpriteFront;
         // TODO: use this.Content to load your game content here
     }
@@ -109,11 +115,18 @@ public class Game1 : Game
 
     protected override void Draw(GameTime gameTime)
     {
-        GraphicsDevice.Clear(Color.CornflowerBlue);
+        GraphicsDevice.Clear(Color.Green);
         _spriteBatch.Begin();
-
-        System.Console.WriteLine(_playerPosition.Y);
-        System.Console.WriteLine(_treePosition.Y);
+        for (uint y = 0; y < _tableau.GetLength(0); y++)
+        {
+            for (uint j = 0; j < _tableau.GetLength(1); j++)
+            {
+                if (_tableau[y, j] == 0)
+                {
+                    _spriteBatch.Draw(_spritePelouse, new Vector2(j * 32, y * 32));
+                }
+            }
+        }
 
         if (
             _playerPosition.Y + _playerSprite.Height / 2
