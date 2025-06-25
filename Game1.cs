@@ -15,12 +15,38 @@ public class Game1 : Game
     private Texture2D _playSpriteTree;
     private Texture2D _playerSprite;
     private Texture2D _spritePelouse;
+    private Texture2D _spriteGrass;
+    private Texture2D _spritePlante1;
     private Vector2 _playerPosition;
     private Vector2 _treePosition;
-    private uint[,] _tableau =
+    private KeyboardState _previousKeyboardState;
+    private int[,] _tableau = new int[25, 25]
     {
-        { 0, 1, 0, 0, 1 },
-        { 1, 1, 0, 0, 1 },
+        { 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 },
+        { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 },
+        { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 },
+        { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 },
+        { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 },
+        { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 },
+        { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 },
+        { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 },
+        { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 },
+        { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 },
+        { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 },
+        { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 },
+        { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 },
+        { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 },
+        { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 },
+        { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 },
+        { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 },
+        { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 },
+        { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 },
+        { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 },
+        { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 },
+        { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 },
+        { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 },
+        { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 },
+        { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 },
     };
 
     public Game1()
@@ -56,7 +82,9 @@ public class Game1 : Game
         _playSpriteLeft = Content.Load<Texture2D>("sprite-left-profil");
         _playSpriteRight = Content.Load<Texture2D>("sprite-right-profil");
         _playSpriteTree = Content.Load<Texture2D>("sprite-trees");
-        _spritePelouse = Content.Load<Texture2D>("sprite-pelouse");
+        _spritePelouse = Content.Load<Texture2D>("sprite-pel");
+        _spriteGrass = Content.Load<Texture2D>("sprite-grass");
+        _spritePlante1 = Content.Load<Texture2D>("sprite-plante1");
         _playerSprite = _playSpriteFront;
         // TODO: use this.Content to load your game content here
     }
@@ -110,6 +138,31 @@ public class Game1 : Game
             screenHeight - spriteHeight / 2
         );
 
+        int x = (int)_playerPosition.X / 32;
+        int y = (int)_playerPosition.Y / 32;
+
+        if (keyboardState.IsKeyDown(Keys.E) && !_previousKeyboardState.IsKeyDown(Keys.E))
+        {
+            if (x >= 0 && x < _tableau.GetLength(1) && y >= 0 && y < _tableau.GetLength(0))
+            {
+                if (_tableau[y, x] == 1)
+                {
+                    _tableau[y, x] = 0;
+                }
+                else if (_tableau[y, x] == 0)
+                {
+                    _tableau[y, x] = 2;
+                }
+                else if (_tableau[y, x] == 2)
+                {
+                    _tableau[y, x] = 1;
+                }
+            }
+        }
+
+        // Enregistre l’état du clavier pour la frame suivante
+        _previousKeyboardState = keyboardState;
+
         base.Update(gameTime);
     }
 
@@ -117,13 +170,25 @@ public class Game1 : Game
     {
         GraphicsDevice.Clear(Color.Green);
         _spriteBatch.Begin();
-        for (uint y = 0; y < _tableau.GetLength(0); y++)
+
+        for (int y = 0; y < _tableau.GetLength(0); y++)
         {
-            for (uint j = 0; j < _tableau.GetLength(1); j++)
+            for (int x = 0; x < _tableau.GetLength(1); x++)
             {
-                if (_tableau[y, j] == 0)
+                int valeur = _tableau[y, x];
+
+                if (valeur == 0)
                 {
-                    _spriteBatch.Draw(_spritePelouse, new Vector2(j * 32, y * 32));
+                    _spriteBatch.Draw(_spriteGrass, new Vector2(x * 32, y * 32), Color.White);
+                }
+                else if (valeur == 1)
+                {
+                    _spriteBatch.Draw(_spritePelouse, new Vector2(x * 32, y * 32), Color.White);
+                }
+                else if (valeur == 2)
+                {
+                    _spriteBatch.Draw(_spriteGrass, new Vector2(x * 32, y * 32), Color.White);
+                    _spriteBatch.Draw(_spritePlante1, new Vector2(x * 32, y * 32), Color.White);
                 }
             }
         }
@@ -140,7 +205,7 @@ public class Game1 : Game
                 Color.White,
                 0f,
                 new Vector2(_playSpriteTree.Width / 2, _playSpriteTree.Height / 2),
-                Vector2.Multiply(Vector2.One, 2f),
+                new Vector2(2f, 2f),
                 SpriteEffects.None,
                 0f
             );
@@ -151,7 +216,7 @@ public class Game1 : Game
                 Color.White,
                 0f,
                 new Vector2(_playerSprite.Width / 2, _playerSprite.Height / 2),
-                Vector2.Multiply(Vector2.One, 2f),
+                new Vector2(2f, 2f),
                 SpriteEffects.None,
                 0f
             );
@@ -165,7 +230,7 @@ public class Game1 : Game
                 Color.White,
                 0f,
                 new Vector2(_playerSprite.Width / 2, _playerSprite.Height / 2),
-                Vector2.Multiply(Vector2.One, 2f),
+                new Vector2(2f, 2f),
                 SpriteEffects.None,
                 0f
             );
@@ -176,7 +241,7 @@ public class Game1 : Game
                 Color.White,
                 0f,
                 new Vector2(_playSpriteTree.Width / 2, _playSpriteTree.Height / 2),
-                Vector2.Multiply(Vector2.One, 2f),
+                new Vector2(2f, 2f),
                 SpriteEffects.None,
                 0f
             );
