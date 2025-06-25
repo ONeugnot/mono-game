@@ -109,4 +109,7 @@ C:\Users\oneugnot\Documents\GitHub\mono-game\obj\Debug\net8.0\refint\mono-game.d
 C:\Users\oneugnot\Documents\GitHub\mono-game\obj\Debug\net8.0\mono-game.pdb
 C:\Users\oneugnot\Documents\GitHub\mono-game\obj\Debug\net8.0\mono-game.genruntimeconfig.cache
 C:\Users\oneugnot\Documents\GitHub\mono-game\obj\Debug\net8.0\ref\mono-game.dll
-C:\Users\oneugnot\Documents\GitHub\mono-game\bin\Debug\net8.0\Content\sprite-pelouse.xnb
+C:\Users\oneugnot\Documents\GitHub\mono-game\bin\Debug\net8.0\Content\sprite-pel.xnb
+C:\Users\oneugnot\Documents\GitHub\mono-game\bin\Debug\net8.0\Content\sprite-grass.xnb
+C:\Users\oneugnot\Documents\GitHub\mono-game\bin\Debug\net8.0\Content\sprite-dog.xnb
+C:\Users\oneugnot\Documents\GitHub\mono-game\bin\Debug\net8.0\Content\sprite-plante1.xnb

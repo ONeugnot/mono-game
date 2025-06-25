@@ -25,6 +25,18 @@
 /processorParam:TextureFormat=Color
 /build:sprite-back.png
 
+#begin sprite-dog.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:sprite-dog.png
+
 #begin sprite-face.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -36,6 +48,18 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:sprite-face.png
+
+#begin sprite-grass.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:sprite-grass.png
 
 #begin sprite-left-profil.png
 /importer:TextureImporter
@@ -49,7 +73,7 @@
 /processorParam:TextureFormat=Color
 /build:sprite-left-profil.png
 
-#begin sprite-pelouse.png
+#begin sprite-pel.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -59,7 +83,19 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:sprite-pelouse.png
+/build:sprite-pel.png
+
+#begin sprite-plante1.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:sprite-plante1.png
 
 #begin sprite-right-profil.png
 /importer:TextureImporter
