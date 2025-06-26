@@ -4,17 +4,25 @@
   <Platform>DesktopGL</Platform>
   <Config />
   <SourceFiles>
+    <File>C:/Users/oneugnot/Documents/GitHub/mono-game/Content/background.png</File>
+    <File>C:/Users/oneugnot/Documents/GitHub/mono-game/Content/e.spritefont</File>
+    <File>C:/Users/oneugnot/Documents/GitHub/mono-game/Content/Font.spritefont</File>
     <File>C:/Users/oneugnot/Documents/GitHub/mono-game/Content/sprite-back.png</File>
     <File>C:/Users/oneugnot/Documents/GitHub/mono-game/Content/sprite-dog.png</File>
     <File>C:/Users/oneugnot/Documents/GitHub/mono-game/Content/sprite-face.png</File>
     <File>C:/Users/oneugnot/Documents/GitHub/mono-game/Content/sprite-grass.png</File>
     <File>C:/Users/oneugnot/Documents/GitHub/mono-game/Content/sprite-left-profil.png</File>
+    <File>C:/Users/oneugnot/Documents/GitHub/mono-game/Content/sprite-ocean-water.png</File>
     <File>C:/Users/oneugnot/Documents/GitHub/mono-game/Content/sprite-pel.png</File>
     <File>C:/Users/oneugnot/Documents/GitHub/mono-game/Content/sprite-plante1.png</File>
     <File>C:/Users/oneugnot/Documents/GitHub/mono-game/Content/sprite-right-profil.png</File>
     <File>C:/Users/oneugnot/Documents/GitHub/mono-game/Content/sprite-trees.png</File>
   </SourceFiles>
   <DestFiles>
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />

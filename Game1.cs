@@ -1,4 +1,6 @@
-﻿using Microsoft.Xna.Framework;
+﻿using System;
+using System.Text;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 
@@ -17,36 +19,277 @@ public class Game1 : Game
     private Texture2D _spritePelouse;
     private Texture2D _spriteGrass;
     private Texture2D _spritePlante1;
+    private Texture2D _spriteOcean;
+    private Texture2D _backgroundimg;
+
     private Vector2 _playerPosition;
     private Vector2 _treePosition;
+    private int _ventory = 0;
     private KeyboardState _previousKeyboardState;
+    private SpriteFont _font;
+    private SpriteFont _fonts;
+    private bool _isOpen = false;
     private int[,] _tableau = new int[25, 25]
     {
-        { 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 },
-        { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 },
-        { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 },
-        { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 },
-        { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 },
-        { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 },
-        { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 },
-        { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 },
-        { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 },
-        { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 },
-        { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 },
-        { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 },
-        { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 },
-        { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 },
-        { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 },
-        { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 },
-        { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 },
-        { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 },
-        { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 },
-        { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 },
-        { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 },
-        { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 },
-        { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 },
-        { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 },
-        { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 },
+        {
+            99,
+            99,
+            99,
+            99,
+            99,
+            99,
+            99,
+            99,
+            99,
+            99,
+            99,
+            99,
+            99,
+            99,
+            99,
+            99,
+            99,
+            99,
+            99,
+            99,
+            99,
+            99,
+            99,
+            99,
+            99,
+        },
+        {
+            99,
+            99,
+            99,
+            99,
+            99,
+            99,
+            99,
+            99,
+            99,
+            99,
+            99,
+            99,
+            99,
+            99,
+            99,
+            99,
+            99,
+            99,
+            99,
+            99,
+            99,
+            99,
+            99,
+            99,
+            99,
+        },
+        {
+            99,
+            99,
+            99,
+            99,
+            99,
+            99,
+            99,
+            99,
+            99,
+            99,
+            99,
+            99,
+            99,
+            99,
+            99,
+            99,
+            99,
+            99,
+            99,
+            99,
+            99,
+            99,
+            99,
+            99,
+            99,
+        },
+        {
+            99,
+            99,
+            99,
+            99,
+            99,
+            99,
+            99,
+            99,
+            99,
+            99,
+            99,
+            99,
+            99,
+            99,
+            99,
+            99,
+            99,
+            99,
+            99,
+            99,
+            99,
+            99,
+            99,
+            99,
+            99,
+        },
+        {
+            99,
+            99,
+            99,
+            99,
+            99,
+            99,
+            99,
+            99,
+            99,
+            99,
+            1,
+            1,
+            1,
+            1,
+            99,
+            99,
+            99,
+            99,
+            99,
+            99,
+            99,
+            99,
+            99,
+            99,
+            99,
+        },
+        {
+            99,
+            99,
+            99,
+            99,
+            99,
+            99,
+            99,
+            99,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            99,
+            99,
+            99,
+            99,
+            99,
+            99,
+            99,
+            99,
+            99,
+        },
+        { 99, 99, 99, 99, 99, 99, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 99, 99, 99, 99, 99, 99, 99 },
+        { 99, 99, 99, 99, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 99, 99, 99, 99, 99 },
+        { 99, 99, 99, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 99, 99, 99, 99 },
+        { 99, 99, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 99, 99, 99 },
+        { 99, 99, 1, 1, 1, 1, 1, 99, 1, 1, 1, 1, 1, 1, 1, 99, 1, 1, 1, 1, 1, 1, 99, 99, 99 },
+        { 99, 1, 1, 1, 1, 1, 99, 99, 99, 1, 1, 1, 1, 1, 99, 99, 99, 1, 1, 1, 1, 1, 1, 99, 99 },
+        { 99, 1, 1, 1, 1, 1, 1, 99, 1, 1, 1, 1, 1, 1, 1, 99, 1, 1, 1, 1, 1, 1, 1, 99, 99 },
+        { 99, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 99, 99 },
+        { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 99 },
+        { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 99 },
+        { 99, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 99, 99 },
+        { 99, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 99, 99 },
+        { 99, 99, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 99, 99, 99 },
+        { 99, 99, 99, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 99, 99, 99, 99 },
+        { 99, 99, 99, 99, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 99, 99, 99, 99, 99 },
+        { 99, 99, 99, 99, 99, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 99, 99, 99, 99, 99, 99, 99 },
+        {
+            99,
+            99,
+            99,
+            99,
+            99,
+            99,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            99,
+            99,
+            99,
+            99,
+            99,
+            99,
+            99,
+            99,
+            99,
+        },
+        {
+            99,
+            99,
+            99,
+            99,
+            99,
+            99,
+            99,
+            99,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            99,
+            99,
+            99,
+            99,
+            99,
+            99,
+            99,
+            99,
+            99,
+            99,
+            99,
+        },
+        {
+            99,
+            99,
+            99,
+            99,
+            99,
+            99,
+            99,
+            99,
+            99,
+            99,
+            99,
+            99,
+            99,
+            99,
+            99,
+            99,
+            99,
+            99,
+            99,
+            99,
+            99,
+            99,
+            99,
+            99,
+            99,
+        },
     };
 
     public Game1()
@@ -85,7 +328,12 @@ public class Game1 : Game
         _spritePelouse = Content.Load<Texture2D>("sprite-pel");
         _spriteGrass = Content.Load<Texture2D>("sprite-grass");
         _spritePlante1 = Content.Load<Texture2D>("sprite-plante1");
+        _spriteOcean = Content.Load<Texture2D>("sprite-ocean-water");
+        _backgroundimg = Content.Load<Texture2D>("background");
         _playerSprite = _playSpriteFront;
+        _font = Content.Load<SpriteFont>("Font");
+        _fonts = Content.Load<SpriteFont>("e");
+
         // TODO: use this.Content to load your game content here
     }
 
@@ -155,12 +403,20 @@ public class Game1 : Game
                 }
                 else if (_tableau[y, x] == 2)
                 {
-                    _tableau[y, x] = 1;
+                    _ventory++;
+                    _tableau[y, x] = 0;
                 }
             }
         }
 
-        // Enregistre l’état du clavier pour la frame suivante
+        if (!_isOpen)
+        {
+            if (keyboardState.IsKeyDown(Keys.Enter))
+            {
+                _isOpen = true;
+            }
+        }
+
         _previousKeyboardState = keyboardState;
 
         base.Update(gameTime);
@@ -168,14 +424,38 @@ public class Game1 : Game
 
     protected override void Draw(GameTime gameTime)
     {
-        GraphicsDevice.Clear(Color.Green);
+        GraphicsDevice.Clear(Color.CornflowerBlue);
         _spriteBatch.Begin();
+
+        if (_isOpen == false)
+        {
+            string enterfor = "Press ENTER to start the game";
+            string title = "Dodge Life!!!";
+            _spriteBatch.Draw(
+                _backgroundimg,
+                new Rectangle(
+                    0,
+                    0,
+                    _graphics.PreferredBackBufferWidth,
+                    _graphics.PreferredBackBufferHeight
+                ),
+                Color.White
+            );
+            _spriteBatch.DrawString(_font, enterfor, new Vector2(200, 400), Color.Yellow);
+            _spriteBatch.DrawString(_fonts, title, new Vector2(300, 100), Color.White);
+            _spriteBatch.End();
+            return;
+        }
 
         for (int y = 0; y < _tableau.GetLength(0); y++)
         {
             for (int x = 0; x < _tableau.GetLength(1); x++)
             {
                 int valeur = _tableau[y, x];
+                if (valeur == 99)
+                {
+                    _spriteBatch.Draw(_spriteOcean, new Vector2(x * 32, y * 32), Color.White);
+                }
 
                 if (valeur == 0)
                 {
@@ -192,6 +472,9 @@ public class Game1 : Game
                 }
             }
         }
+
+        string text = $"Kill: {_ventory}";
+        _spriteBatch.DrawString(_font, text, new Vector2(20, 20), Color.Black);
 
         if (
             _playerPosition.Y + _playerSprite.Height / 2

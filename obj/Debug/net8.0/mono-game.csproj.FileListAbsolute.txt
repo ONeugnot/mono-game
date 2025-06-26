@@ -113,3 +113,7 @@ C:\Users\oneugnot\Documents\GitHub\mono-game\bin\Debug\net8.0\Content\sprite-pel
 C:\Users\oneugnot\Documents\GitHub\mono-game\bin\Debug\net8.0\Content\sprite-grass.xnb
 C:\Users\oneugnot\Documents\GitHub\mono-game\bin\Debug\net8.0\Content\sprite-dog.xnb
 C:\Users\oneugnot\Documents\GitHub\mono-game\bin\Debug\net8.0\Content\sprite-plante1.xnb
+C:\Users\oneugnot\Documents\GitHub\mono-game\bin\Debug\net8.0\Content\Font.xnb
+C:\Users\oneugnot\Documents\GitHub\mono-game\bin\Debug\net8.0\Content\sprite-ocean-water.xnb
+C:\Users\oneugnot\Documents\GitHub\mono-game\bin\Debug\net8.0\Content\background.xnb
+C:\Users\oneugnot\Documents\GitHub\mono-game\bin\Debug\net8.0\Content\e.xnb
